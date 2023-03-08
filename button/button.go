@@ -22,7 +22,7 @@ func NewButton(pin machine.Pin, mode machine.PinMode) *PushButton {
 	}
 }
 
-func NewToggleButton(button *PushButton, initialState ...bool) *ToggleButton {
+func NewToggleButton(button Button, initialState ...bool) *ToggleButton {
 	state := false
 	if len(initialState) > 0 {
 		state = initialState[0]
@@ -61,7 +61,7 @@ func (b *PushButton) Get() bool {
 }
 
 type ToggleButton struct {
-	btn       *PushButton
+	btn       Button
 	state     bool
 	lastState bool
 }
